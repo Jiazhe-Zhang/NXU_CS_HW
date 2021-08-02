@@ -53,8 +53,8 @@ JDK 1.8及以上 + MySQL 5.5.3及以上
 
 5、然后启动项目即可正常运行。
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0803/000208_2283b057_2024507.jpeg "4.jpg")
-<br>
-管理员后台地址为 http://您的地址:8080/admin/login
+<br><br>
+管理员后台地址为 http://您的地址:8080/admin/login <br>
 管理员初始账号admin 密码1234567(可自行修改)
 
 
