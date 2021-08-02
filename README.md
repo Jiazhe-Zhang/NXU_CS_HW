@@ -43,17 +43,17 @@ JDK 1.8及以上 + MySQL 5.5.3及以上
 
 
 2、修改配置文件:修改项目下src\main\resources\application.yml文件，请自行替换数据库信息
-[图1]
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0803/000136_dcefac4e_2024507.jpeg "1.jpg")
 
 3、Eclipse项目上点击鼠标右键 --> Run As --> Maven install (mvn install命令)将项目生成
-[图2]
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0803/000147_01329980_2024507.jpeg "2.jpg")
 
 4、在Eclipse中打开src\test\java\forum\Init.java选中install方法用JUnit执行，此操作会创建外部文件夹和将SQL导入到数据库
-[图3]
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0803/000154_928711b0_2024507.jpeg "3.jpg")
 
 5、然后启动项目即可正常运行。管理员初始账号admin 密码1234567(可自行修改)
-[图4]
-
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0803/000208_2283b057_2024507.jpeg "4.jpg")
+<br>
 管理员后台地址为 http://您的地址:8080/admin/login
 
 
