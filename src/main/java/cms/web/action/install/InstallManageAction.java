@@ -3,6 +3,7 @@ package cms.web.action.install;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
@@ -270,7 +271,7 @@ public class InstallManageAction {
 					ClassPathResource data_classPathResource = new ClassPathResource("WEB-INF/data/install/data_tables_mysql.sql");	
 					data_inputStream = data_classPathResource.getInputStream();
 					//导入quartz SQL文件
-					SqlFile.importSQL(conn, new InputStreamReader(data_inputStream));
+					SqlFile.importSQL(conn, new InputStreamReader(data_inputStream,Charset.forName("utf-8")));
 					
 					
 					//插入管理员数据
