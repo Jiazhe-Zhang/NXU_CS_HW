@@ -9,7 +9,6 @@
 	<meta name="description" content="${description}"/>
 	<#-- 获取令牌 -->
 	<meta name="csrfToken" content="${token}"/>
-	<link rel="shortcut icon" type="image/x-icon" href="${baseURL}${commonPath}images/favicon.ico" media="screen" />
 	<link href="${commonPath}css/common.css" type="text/css" rel="stylesheet" charset="utf-8">
 	<link href="${commonPath}css/themify-icons/style.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="${commonPath}js/tool.js" type="text/javascript"></script>
@@ -122,7 +121,7 @@ function deleteFavorite(favoriteId){
 		    		</#if> 
 		    		<#if !pageView.records?exists || pageView.totalrecord == 0 > 
 		    			<TR>
-							<TD colSpan="3"  class="empty">还没有收藏话题</TD>
+							<TD colSpan="4"  class="empty">还没有收藏话题</TD>
 		    			</TR>
 		    		</#if> 
 		    	</TBODY>

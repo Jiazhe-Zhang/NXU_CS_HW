@@ -110,8 +110,11 @@ public class UpgradeManageAction {
 					notCompletedUpgrade = upgradeSystem;
 					break;
 				}else{
-					isCompletedUpgrade = true;
+					if(currentVersion.equals(upgradeSystem.getId())){//如果当前系统版本已升级完成
+						isCompletedUpgrade = true;
+					}
 				}
+				
 			}
 		}
 		if(notCompletedUpgrade == null && !isCompletedUpgrade){
@@ -157,7 +160,7 @@ public class UpgradeManageAction {
 						// TODO Auto-generated catch block
 						//e1.printStackTrace();
 						if (logger.isErrorEnabled()) {
-				            logger.error("读取配置文件IO异常 WEB-INF/data/upgrade/folder/config.properties",e);
+				            logger.error("读取配置文件IO异常 WEB-INF/data/upgrade/"+folder+"/config.properties",e);
 				        }
 					}
 					break;

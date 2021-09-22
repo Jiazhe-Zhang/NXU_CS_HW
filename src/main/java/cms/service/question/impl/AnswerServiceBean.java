@@ -12,13 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import cms.bean.payment.PaymentLog;
 import cms.bean.platformShare.QuestionRewardPlatformShare;
 import cms.bean.question.Answer;
 import cms.bean.question.AnswerReply;
-import cms.bean.question.Question;
-import cms.bean.question.QuestionTagAssociation;
-import cms.bean.user.PointLog;
 import cms.service.besa.DaoSupport;
 import cms.service.platformShare.PlatformShareService;
 import cms.service.question.AnswerService;
@@ -411,6 +407,22 @@ public class AnswerServiceBean extends DaoSupport<Answer> implements AnswerServi
 		return delete.executeUpdate();
 		
 	}
+	/**
+	 * 标记删除答案
+	 * @param answerIdId 答案Id
+	 * @param constant 常数 例如 "110.待审核用户删除" 则加上100
+	 * @return
+	 */
+	public Integer markDeleteAnswer(Long answerId,Integer constant){
+		int i = 0;
+		Query query = em.createQuery("update Answer o set o.status=o.status+?1 where o.id=?2 and o.status <?3")
+		.setParameter(1, constant)
+		.setParameter(2, answerId)
+		.setParameter(3, constant);
+		i= query.executeUpdate();
+		return i;
+		
+	}
 	
 	/**
 	 * 查询待审核答案数量
@@ -584,6 +596,23 @@ public class AnswerServiceBean extends DaoSupport<Answer> implements AnswerServi
 		return query.executeUpdate();
 	}
 	/**
+	 * 标记删除回复
+	 * @param replyId 回复Id
+	 * @param constant 常数 例如 "110.待审核用户删除" 则加上100
+	 * @return
+	 */
+	public Integer markDeleteReply(Long replyId,Integer constant){
+		int i = 0;
+		Query query = em.createQuery("update AnswerReply o set o.status=o.status+?1 where o.id=?2 and o.status <?3")
+		.setParameter(1, constant)
+		.setParameter(2, replyId)
+		.setParameter(3, constant);
+		i= query.executeUpdate();
+		return i;
+		
+	}
+	
+	/**
 	 * 删除回复
 	 * @param answerReplyId 回复Id
 	 * @return
@@ -593,6 +622,7 @@ public class AnswerServiceBean extends DaoSupport<Answer> implements AnswerServi
 		.setParameter(1, answerReplyId);
 		return delete.executeUpdate();
 	}
+	
 	/**
 	 * 根据用户名称集合删除答案回复
 	 * @param userNameList 用户名称集合

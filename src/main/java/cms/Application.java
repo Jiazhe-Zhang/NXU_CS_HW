@@ -6,34 +6,34 @@ import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.SessionCookieConfig;
+import javax.servlet.SessionTrackingMode;
+
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import cms.utils.CreateBean;
 import cms.utils.CreateEntityFile;
 import cms.utils.YmlUtils;
 import cms.web.action.install.InstallManage;
 import cms.web.filter.InitApplicationListener;  
 /** 
  * 注解@SpringBootApplication指定项目为springboot，由此类当作程序入口,自动装配 web 依赖的环境; 
- * @author admin 
  * 
  */
 @EnableScheduling // 开启定时
 @SpringBootApplication(exclude = {FreeMarkerAutoConfiguration.class})//取消freemarker自动配置
 @ServletComponentScan("cms.web.filter")
-public class Application {  
+public class Application extends SpringBootServletInitializer{  
 	
     // 在main方法中启动一个应用，即：这个应用的入口  
     public static void main(String[] args) {  
@@ -93,7 +93,16 @@ public class Application {
     
     
     
-    
+    /**
+     * 解决静态url带jsessionid问题
+     */
+    @Override
+    public void onStartup(ServletContext servletContext) throws ServletException {
+	    super.onStartup(servletContext);
+	    servletContext.setSessionTrackingModes(Collections.singleton(SessionTrackingMode.COOKIE));
+	    SessionCookieConfig sessionCookieConfig=servletContext.getSessionCookieConfig();
+	    sessionCookieConfig.setHttpOnly(true);
+    }
     
     
     
