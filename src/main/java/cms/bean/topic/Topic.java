@@ -119,6 +119,10 @@ public class Topic implements Serializable{
 	private Boolean isStaff = false;
 	/** 排序  **/
 	private Integer sort = 0;
+	
+	/** 精华  **/
+	private Boolean essence = false;
+	
 	/** 状态 10.待审核 20.已发布 110.待审核删除 120.已发布删除 **/
 	private Integer status = 10;
 	
@@ -290,6 +294,12 @@ public class Topic implements Serializable{
 	}
 	public void setGiveRedEnvelopeId(String giveRedEnvelopeId) {
 		this.giveRedEnvelopeId = giveRedEnvelopeId;
+	}
+	public Boolean getEssence() {
+		return essence;
+	}
+	public void setEssence(Boolean essence) {
+		this.essence = essence;
 	}
 	
 }

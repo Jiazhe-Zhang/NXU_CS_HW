@@ -19,6 +19,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import cms.utils.PathUtil;
 import cms.web.taglib.Base64Tag;
 import cms.web.taglib.EncodeURL;
+import freemarker.core.TemplateClassResolver;
 import freemarker.template.TemplateException;
 
 /**
@@ -61,7 +62,9 @@ public class FreemarkerConfig{
         configuration.setWhitespaceStripping(true);//剥去空白区域
         configuration.setTagSyntax(freemarker.template.Configuration.AUTO_DETECT_TAG_SYNTAX);//tag_syntax = square_bracket||auto_detect 设置标签类型 两种：[] 和 <> 。[] 这种标记解析要快些
         configuration.setURLEscapingCharset("UTF-8");//URL编码的字符集
-       
+        
+        configuration.setNewBuiltinClassResolver(TemplateClassResolver.ALLOWS_NOTHING_RESOLVER);//禁止解析任何类
+        
         configuration.setIncompatibleImprovements(freemarker.template.Configuration.VERSION_2_3_31);
         
         configuration.setSharedVariable("function", templateCustomMethods);//自定义方法

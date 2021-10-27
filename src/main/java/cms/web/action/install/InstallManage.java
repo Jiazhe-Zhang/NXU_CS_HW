@@ -47,6 +47,8 @@ public class InstallManage {
 		folderList.add("file/comment/lock");
 		folderList.add("file/help");
 		folderList.add("file/help/lock");
+		folderList.add("file/helpType");
+		folderList.add("file/helpType/lock");
 		folderList.add("file/links");
 		folderList.add("file/links/lock");
 		folderList.add("file/mediaProcessSetting");
