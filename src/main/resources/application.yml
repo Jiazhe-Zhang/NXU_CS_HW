@@ -24,6 +24,7 @@ bbs:
     paymentLogConfig_tableQuantity: 4 #支付日志配置分表数量
     questionFavoriteConfig_tableQuantity: 4 #问题收藏配置分表数量
     receiveRedEnvelopeConfig_tableQuantity: 4 #收红包配置分表数量
+    membershipCardGiftItemConfig_tableQuantity: 4 #会员卡赠送项配置分表数量
 #jasypt加密的盐值
 jasypt:
   encryptor:
@@ -36,7 +37,7 @@ spring:
   datasource:
     
     #账号配置
-    url: jdbc:mysql://127.0.0.1:3306/bbs-pro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&rewriteBatchedStatements=true
+    url: jdbc:mysql://127.0.0.1:3306/bbs-pro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&allowPublicKeyRetrieval=true&useSSL=false&rewriteBatchedStatements=true
     username: root
     #加密由ENC()包裹
     password: ENC(Sku969l49yh/xvRfuHQh8A==)

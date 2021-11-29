@@ -724,6 +724,26 @@
             <heap unit="entries">900000</heap>
         </resources>
     </cache>
+     <!-- 查询启用的长期会员卡赠送任务 (更新一个全部刷新) -->	
+    <cache alias="membershipCardGiftTaskBean_cache" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">60</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1</heap>
+        </resources>
+    </cache>
+    <!-- 查询查询会员卡赠送项 -->		
+    <cache alias="membershipCardGiftTaskManage_cache_findMembershipCardGiftItemById" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
 	<!-- 支付接口 (更新一个全部刷新) -->	
     <cache alias="paymentServiceBean_cache" uses-template="template">
         <expiry>

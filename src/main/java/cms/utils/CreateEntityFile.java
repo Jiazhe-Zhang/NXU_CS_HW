@@ -179,7 +179,15 @@ public class CreateEntityFile {
 			}	
 		}
 		
-		
+		//会员卡赠送项分表数量
+		int membershipCardGiftItemConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.membershipCardGiftItemConfig_tableQuantity"));
+		if(membershipCardGiftItemConfig_tableQuantity >1){
+			for(int i =1; i<membershipCardGiftItemConfig_tableQuantity; i++){
+				
+				//初始化会员卡赠送项bean
+				CreateBean.createMembershipCardGiftItem(i);
+			}	
+		}
     	
     }
 }

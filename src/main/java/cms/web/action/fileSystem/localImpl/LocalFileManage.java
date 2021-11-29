@@ -74,13 +74,26 @@ public class LocalFileManage {
     public void copyFile(String resFilePath, String distFolder) throws IOException {   
     	
         File resFile = new File(PathUtil.defaultExternalDirectory()+File.separator+resFilePath);   
-        File distFile = new File(PathUtil.defaultExternalDirectory()+File.separator+distFolder+File.separator); 
+        File distFile = new File(PathUtil.defaultExternalDirectory()+File.separator+distFolder); 
 		if (resFile.isFile()) {   
 			FileUtils.copyFileToDirectory(resFile,distFile,true);   
         }
 
     }  
-    
+    /**  
+     * 复制目录
+     * @param resDirectory 源目录路径  
+     * @param distFolder  目标文件夹  
+     * @IOException 当操作发生异常时抛出  
+     */   
+    public void copyDirectory(String resDirectory, String distFolder) throws IOException {   
+    	File resDir = new File(PathUtil.defaultExternalDirectory()+File.separator+resDirectory);   
+        File distDir = new File(PathUtil.defaultExternalDirectory()+File.separator+distFolder); 
+ 		if (resDir.isDirectory()){
+ 			FileUtils.copyDirectoryToDirectory(resDir, distDir);
+        }
+    	
+    }
     /**
 	 * 添加锁
 	 * @param path 路径(格式"file"+File.separator+"目录"+File.separator+"lock"+File.separator)

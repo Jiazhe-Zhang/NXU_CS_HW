@@ -9,7 +9,6 @@
 	<meta name="description" content="${description}"/>
 	<#-- 获取令牌 -->
 	<meta name="csrfToken" content="${token}"/>
-	<link rel="shortcut icon" type="image/x-icon" href="${baseURL}${commonPath}images/favicon.ico" media="screen" />
 	<link href="${commonPath}css/common.css" type="text/css" rel="stylesheet" charset="utf-8">
 	<link href="${commonPath}css/themify-icons/style.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="${commonPath}js/tool.js" type="text/javascript"></script>
@@ -87,9 +86,9 @@ function deleteLike(likeId){
 			<TABLE class="dataList" width="100%">
 				<THEAD>
 					<TR class="dataThead">
-						<TH width="50%">标题</TH>	
+						<TH width="56%">标题</TH>	
 						<TH width="30%">点赞时间</TH>	
-						<TH width="20%">操作</TH>
+						<TH width="14%">操作</TH>
 					</TR>
 				</THEAD>
 				<TBODY>
@@ -103,7 +102,9 @@ function deleteLike(likeId){
 							${like.addtime}	
 						</TD>
 						<TD class="dataTD">
-							<a href="javascript:" onclick="deleteLike('${like.id}')">删除</a>
+							<a class="operation-button" href="javascript:" onclick="deleteLike('${like.id}')">
+								<span>删除</span>
+							</a>
 						</TD>
 		    		</TR>
 		    		</#list>

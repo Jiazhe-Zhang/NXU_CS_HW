@@ -9,7 +9,6 @@
 	<meta name="description" content="${description}"/>
 	<#-- 获取令牌 -->
 	<meta name="csrfToken" content="${token}"/>
-	<link rel="shortcut icon" type="image/x-icon" href="${baseURL}${commonPath}images/favicon.ico" media="screen" />
 	<link href="${commonPath}css/common.css" type="text/css" rel="stylesheet" charset="utf-8">
 	<link href="${commonPath}css/themify-icons/style.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="${commonPath}js/tool.js" type="text/javascript"></script>
@@ -88,9 +87,9 @@ function deleteFollow(followId){
 			<TABLE class="dataList" width="100%">
 				<THEAD>
 					<TR class="dataThead">
-						<TH width="60%">用户</TH>	
+						<TH width="66%">用户</TH>	
 						<TH width="20%">关注时间</TH>	
-						<TH width="20%">操作</TH>
+						<TH width="14%">操作</TH>
 					</TR>
 				</THEAD>
 				<TBODY>
@@ -121,7 +120,9 @@ function deleteFollow(followId){
 							${follow.addtime}	
 						</TD>
 						<TD class="dataTD">
-							<a href="javascript:" onclick="deleteFollow('${follow.id}')">删除</a>
+							<a class="operation-button" href="javascript:" onclick="deleteFollow('${follow.id}')">
+								<span>删除</span>
+							</a>
 						</TD>
 		    		</TR>
 		    		</#list>

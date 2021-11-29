@@ -128,21 +128,11 @@ public class TempletesInterceptor implements HandlerInterceptor{
 	    	//IP
 	    	TemplateThreadLocal.addRuntimeParameter("ip", IpAddress.getClientIpAddress(request));
 	    	
-	    	//获取登录用户(user/开头的URL才有值)
+	    	//获取登录用户
 		  	AccessUser accessUser = AccessUserThreadLocal.get();
 	    	if(accessUser != null){
 	    		
 	    		TemplateThreadLocal.addRuntimeParameter("accessUser", accessUser);
-	    	}else{
-	    		//获取登录用户
-	    		AccessUser _accessUser = oAuthManage.getUserName(request);
-	    		if(_accessUser != null){
-	    			UserState userState = userManage.query_userState(_accessUser.getUserName().trim());//用户状态
-	    			if(userState != null && userState.getSecurityDigest().equals(_accessUser.getSecurityDigest())){//验证安全摘要
-	    				TemplateThreadLocal.addRuntimeParameter("accessUser", _accessUser );
-		    			AccessUserThreadLocal.set(_accessUser);
-	    			}
-    			}	
 	    	}
 		}
 		//设置令牌
@@ -325,9 +315,6 @@ public class TempletesInterceptor implements HandlerInterceptor{
 	 */
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse 
 			 response, Object handler, Exception ex)throws Exception {  	
-    	//删除当前线程副本
-    	TemplateThreadLocal.removeThreadLocal();
-    	AccessUserThreadLocal.removeThreadLocal();
-    	CSRFTokenThreadLocal.removeThreadLocal();
+    	
 	}   
 }

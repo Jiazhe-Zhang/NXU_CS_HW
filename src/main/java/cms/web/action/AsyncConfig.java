@@ -19,9 +19,9 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 public class AsyncConfig {
 	
 	//@Value("${taskExecutor.async.corePoolSize}")
-    private int corePoolSize = 4;
+    private int corePoolSize = 20;
     //@Value("${taskExecutor.async.maxPoolSize}")
-    private int maxPoolSize = 15;
+    private int maxPoolSize = 500;
     
 	
 	//cms.web.action.quartz.Task.java类topicIndex()方法@Async("taskExecutor_topicIndex")调用
