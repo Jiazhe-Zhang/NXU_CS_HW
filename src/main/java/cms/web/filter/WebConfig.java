@@ -6,15 +6,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -32,7 +36,7 @@ import cms.utils.PathUtil;
 public class WebConfig implements WebMvcConfigurer{
 	@Autowired
     private TempletesInterceptor templetesInterceptor;
-	
+	@Resource TaskExecutor taskExecutor;//多线程
 
 	/**
 	 * 必须配置application.yml中的spring: resources: addMappings: false 属性才不会出错
@@ -137,4 +141,25 @@ public class WebConfig implements WebMvcConfigurer{
        // AtomFeedHttpMessageConverter: 读写Atom格式的数据
        // RssChannelHttpMessageConverter: 读写RSS格式的数据
     }
+    
+    /**
+     * 配置异步请求处理选项
+     * 
+     */
+    @Override
+    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+        long timeout = 24 * 60 * 60 * 1000;//24小时
+        WebMvcConfigurer.super.configureAsyncSupport(configurer);
+        configurer.setDefaultTimeout(timeout);//超时时间，单位/毫秒;  -1表示无限制;  86400000表示24小时; 如果未设置此值，则使用基础实现的默认超时，例如，在带有Servlet 3的Tomcat上为10秒。
+        configurer.setTaskExecutor((ThreadPoolTaskExecutor)taskExecutor);//指定自定义线程池
+        
+       // configurer.registerDeferredResultInterceptors(this.timeoutDeferredTimeoutInterceptor());//注册异步拦截器
+    }
+    
+    
+    
+    //@Bean
+	//public TimeoutDeferredResultProcessingInterceptor timeoutDeferredTimeoutInterceptor() {
+	//	return new TimeoutDeferredResultProcessingInterceptor();
+	//}
 }

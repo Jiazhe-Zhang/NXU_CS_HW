@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
@@ -19,7 +17,6 @@ import javax.persistence.Transient;
  */
 
 @MappedSuperclass
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class MembershipCardGiftItemEntity implements Serializable{
 	private static final long serialVersionUID = -5763871320407326485L;
 	
@@ -31,6 +28,9 @@ public class MembershipCardGiftItemEntity implements Serializable{
 	/** 会员卡赠送任务Id **/
 	protected Long membershipCardGiftTaskId;
 	
+	/** 账号 **/
+	@Transient
+	protected String account;
 	/** 呢称 **/
 	@Transient
 	protected String nickname;
@@ -131,6 +131,12 @@ public class MembershipCardGiftItemEntity implements Serializable{
 	}
 	public void setAvatarName(String avatarName) {
 		this.avatarName = avatarName;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
 	

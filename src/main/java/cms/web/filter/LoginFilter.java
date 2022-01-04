@@ -38,7 +38,7 @@ import cms.web.taglib.Configuration;
  * 检查登录用户跳转
  *
  */
-@WebFilter(urlPatterns ="/*", filterName ="loginFilter")
+@WebFilter(urlPatterns ="/*", filterName ="loginFilter",asyncSupported = true)
 public class LoginFilter implements Filter {
 	
 

@@ -30,6 +30,9 @@ public class PrivateMessageEntity implements Serializable{
 	/** 私信对方用户名称 **/
 	@Transient
 	protected String friendUserName;
+	/** 私信对方账号 **/
+	@Transient
+	protected String friendAccount;
 	/** 私信对方呢称 **/
 	@Transient
 	protected String friendNickname;
@@ -51,6 +54,9 @@ public class PrivateMessageEntity implements Serializable{
 	/** 发送者用户名称  **/
 	@Transient
 	protected String senderUserName;
+	/** 发送者账号  **/
+	@Transient
+	protected String senderAccount;
 	/** 发送者呢称  **/
 	@Transient
 	protected String senderNickname;
@@ -193,6 +199,18 @@ public class PrivateMessageEntity implements Serializable{
 	}
 	public void setSenderNickname(String senderNickname) {
 		this.senderNickname = senderNickname;
+	}
+	public String getFriendAccount() {
+		return friendAccount;
+	}
+	public void setFriendAccount(String friendAccount) {
+		this.friendAccount = friendAccount;
+	}
+	public String getSenderAccount() {
+		return senderAccount;
+	}
+	public void setSenderAccount(String senderAccount) {
+		this.senderAccount = senderAccount;
 	}
 
 }

@@ -31,6 +31,9 @@ public class FollowEntity implements Serializable{
 	/** 对方的用户名称 **/
 	@Column(length=30)
 	protected String friendUserName;
+	/** 对方账号 **/
+	@Transient
+	protected String friendAccount;
 	/** 对方呢称 **/
 	@Transient
 	protected String friendNickname;
@@ -99,6 +102,14 @@ public class FollowEntity implements Serializable{
 
 	public void setAddtime(Date addtime) {
 		this.addtime = addtime;
+	}
+
+	public String getFriendAccount() {
+		return friendAccount;
+	}
+
+	public void setFriendAccount(String friendAccount) {
+		this.friendAccount = friendAccount;
 	}
 	
 

@@ -5,8 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,6 +28,9 @@ public class FavoritesEntity implements Serializable{
 	/** 收藏夹的用户名称 **/
 	@Column(length=30)
 	protected String userName;
+	/** 账号 **/
+	@Transient
+	protected String account;
 	/** 呢称 **/
 	@Transient
 	protected String nickname;
@@ -156,6 +157,14 @@ public class FavoritesEntity implements Serializable{
 
 	public void setAvatarName(String avatarName) {
 		this.avatarName = avatarName;
+	}
+
+	public String getAccount() {
+		return account;
+	}
+
+	public void setAccount(String account) {
+		this.account = account;
 	}
 	
 	

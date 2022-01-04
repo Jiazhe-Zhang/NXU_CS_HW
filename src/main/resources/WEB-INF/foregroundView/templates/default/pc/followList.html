@@ -9,6 +9,7 @@
 	<meta name="description" content="${description}"/>
 	<#-- 获取令牌 -->
 	<meta name="csrfToken" content="${token}"/>
+	<link rel="shortcut icon" type="image/x-icon" href="${baseURL}${commonPath}images/favicon.ico" media="screen" />
 	<link href="${commonPath}css/common.css" type="text/css" rel="stylesheet" charset="utf-8">
 	<link href="${commonPath}css/themify-icons/style.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="${commonPath}js/tool.js" type="text/javascript"></script>
@@ -105,12 +106,12 @@ function deleteFollow(followId){
 						            
 						        	<#if follow.friendAvatarName == null || follow.friendAvatarName == ''>    
 										<!-- 首字符头像-->
-						         		<img avatar="${(follow.friendNickname != null && follow.friendNickname??) ?string(follow.friendNickname , follow.friendUserName)}" >
+						         		<img avatar="${(follow.friendNickname != null && follow.friendNickname??) ?string(follow.friendNickname , follow.friendAccount)}" >
 						            </#if> 
 								</a>
 							</div>
 							<a href="user/control/home?userName=${follow.friendUserName}" target="_blank" class="link userName">
-								${follow.friendUserName}
+								${follow.friendAccount}
 								<#if follow.friendNickname != null && follow.friendNickname??>    
 									（呢称：${follow.friendNickname}）
 								</#if> 

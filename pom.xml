@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>bbs</groupId>
 	<artifactId>bbs-pro</artifactId>
-	<version>5.5</version>
+	<version>5.6</version>
  
 	<properties>
     	<webVersion>3.1</webVersion>
@@ -11,7 +11,7 @@
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- 指定log4j2版本 -->
-		<log4j2.version>2.17.0</log4j2.version>
+		<log4j2.version>2.17.1</log4j2.version>
 	</properties>
  
 	<parent>
