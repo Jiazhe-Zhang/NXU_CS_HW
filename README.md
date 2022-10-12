@@ -1,5 +1,6 @@
 ###  Spring 版本轻论坛请移步至 [https://gitee.com/diyhi/bbs](https://gitee.com/diyhi/bbs)
-
+###  前台前后端分离电脑版前端请移步至 [https://gitee.com/diyhi/bbs-web-pc ](https://gitee.com/diyhi/bbs-web-pc )
+ 
 <br>
 
 #### 项目介绍
