@@ -9,6 +9,7 @@ import org.springframework.web.util.HtmlUtils;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.json.JsonReadFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonSerializer;
@@ -41,6 +42,9 @@ public class JsonUtils {
         //JSON转POJO时，若JSON中的某个字段在POJO中未定义，在默认情况下会抛异常转换失败，只要增加这个配置
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         
+        //允许出现特殊字符和转义符
+        objectMapper.configure(JsonReadFeature.ALLOW_UNESCAPED_CONTROL_CHARS.mappedFeature(), true) ;
+
      
         //序列换成json时,将所有的long变成string,因为js中的数字类型不能包含所有的java long值
         SimpleModule simpleModule = new SimpleModule();
@@ -121,6 +125,30 @@ public class JsonUtils {
      * @return
      */
 	public static <T> T toObject(String jsonString, Class<?> c) {
+    	
+        if (jsonString == null || "".equals(jsonString)) {
+        	
+            return (T) "";
+        } else {
+            try {
+            	return (T)objectMapper.readValue(jsonString, c);	
+            } catch (Exception e) {
+            	if (logger.isErrorEnabled()) {
+                	logger.error("Json字符串转Java对象",e);
+       		    }
+            }
+ 
+        }
+        return (T) "";
+    }
+	
+	/**
+     * Json字符串转Java对象
+     * @param jsonString
+     * @param c
+     * @return
+     */
+	public static <T> T toObject2(String jsonString, Class<?> c) {
     	
         if (jsonString == null || "".equals(jsonString)) {
         	

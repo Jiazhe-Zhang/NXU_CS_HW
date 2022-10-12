@@ -1,8 +1,11 @@
 package cms.web.action.upgrade;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashSet;
@@ -17,11 +20,14 @@ import cms.service.upgrade.UpgradeService;
 import cms.utils.FileUtil;
 import cms.utils.JsonUtils;
 import cms.utils.PathUtil;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -156,6 +162,35 @@ public class UpgradeManage {
 		return new ArrayList<>(folderList);
 	}
 
+	/**
+	 * 读取初始论坛版本号
+	 * @return
+	 */
+	public String readOriginalVersion(){
+		
+		return FileUtil.readFileToString("WEB-INF"+File.separator+"data"+File.separator+"install"+File.separator+"originalVersion.txt","UTF-8");
+    	
+	}
+	
+	/**
+	 * 读取当前版本号
+	 * @return
+	 */
+	public String readCurrentVersion(){
+		String currentVersion = "";
+		//读取当前系统版本
+		ClassPathResource classPathResource = new ClassPathResource("WEB-INF/data/systemVersion.txt");
+		try (InputStream inputStream = classPathResource.getInputStream()){
+			currentVersion = IOUtils.toString(inputStream, StandardCharsets.UTF_8); 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e1.printStackTrace();
+			if (logger.isErrorEnabled()) {
+	            logger.error("读取当前系统版本IO异常",e);
+	        }
+		}
+		return currentVersion;
+	}
 	
 	/**
 	 * 查询/添加任务运行标记

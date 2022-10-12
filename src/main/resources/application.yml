@@ -40,7 +40,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/bbs-pro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&allowPublicKeyRetrieval=true&useSSL=false&rewriteBatchedStatements=true
     username: root
     #加密由ENC()包裹
-    password: ENC(Sku969l49yh/xvRfuHQh8A==)
+    password: ENC(H8RxvgIzAJRfwLV10qFukA==)
     driver-class-name: com.mysql.cj.jdbc.Driver
     #hikari数据库连接池
     hikari:
@@ -68,18 +68,15 @@ spring:
       hibernate.physical_naming_strategy: cms.web.filter.MyPhysicalNamingStrategy
       hibernate.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
-  http:
-    encoding:
-      force: true
-      #编码UTF-8
-      charset: UTF-8
-  resources:
-    addMappings: false #false表示不加入默认的静态资源路径处理。  为true时处理/**,所有匹配不到的接口请求将由ResourceHttpRequestHandler处理、获取并返回。而ResourceHttpRequestHandler内部将会查找对应的静态资源，如果查不到将直接response.sendError()最终重定向到/error视图,最终交给springboot默认的/error控制器处理。
+  
+  web:
+    resources:
+      addMappings: false #false表示不加入默认的静态资源路径处理。  为true时处理/**,所有匹配不到的接口请求将由ResourceHttpRequestHandler处理、获取并返回。而ResourceHttpRequestHandler内部将会查找对应的静态资源，如果查不到将直接response.sendError()最终重定向到/error视图,最终交给springboot默认的/error控制器处理。  注意：spring boot 2.5路径为 spring.resources.addMappings  spring boot 2.6路径为 spring.web.resources.addMappings
   servlet:
     multipart:
       max-file-size: 1000MB #文件上传单个数据大小
       max-request-size: 1000MB ##文件上传总数据大小
-
+    
 
  # mvc: 
    # throw-exception-if-no-handler-found: true  #默认配置下，找不到hander,直接sendError()。设为true在访问一个不存在的接口时可以让它抛出异常，已便在后面的异常处理器中统一处理
@@ -97,6 +94,11 @@ spring:
 server:
   #服务端口
   port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8 #HTTP请求和响应的字符集。如果未显式设置，则添加到“Content-Type”头
+      enabled: true  #是否启用http编码支持
+      force: true    #是否强制对HTTP请求和响应上配置的字符集进行编码
   #Tomcat
   tomcat:
     #uri编码

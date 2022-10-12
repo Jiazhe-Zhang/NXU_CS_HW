@@ -51,8 +51,8 @@ public class Application extends SpringBootServletInitializer{
     	if(!isMaven){
     		SpringApplication application = new SpringApplication(Application.class);
             application.addListeners(new InitApplicationListener());//注册监听器
+            application.setAllowCircularReferences(Boolean.TRUE);//spring boot 2.6 允许循环引用
             application.run(args);
-    		
     		//ConfigurableApplicationContext context = SpringApplication.run(Application.class, args); 
         	//注册监听器
            //context.addApplicationListener(new InitApplicationListener());
@@ -90,20 +90,6 @@ public class Application extends SpringBootServletInitializer{
     	
        
     }  
-    
-    
-    
-    /**
-     * 解决静态url带jsessionid问题
-     */
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-	    super.onStartup(servletContext);
-	    servletContext.setSessionTrackingModes(Collections.singleton(SessionTrackingMode.COOKIE));
-	    SessionCookieConfig sessionCookieConfig=servletContext.getSessionCookieConfig();
-	    sessionCookieConfig.setHttpOnly(true);
-    }
-    
     
     
     

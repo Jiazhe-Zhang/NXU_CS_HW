@@ -156,19 +156,8 @@ public class QuestionFormAction {
 		}
 			
 		
-		//判断令牌
-		if(token != null && !"".equals(token.trim())){	
-			String token_sessionid = csrfTokenManage.getToken(request);//获取令牌
-			if(token_sessionid != null && !"".equals(token_sessionid.trim())){
-				if(!token_sessionid.equals(token)){
-					error.put("token", ErrorView._13.name());//令牌错误
-				}
-			}else{
-				error.put("token", ErrorView._12.name());//令牌过期
-			}
-		}else{
-			error.put("token", ErrorView._11.name());//令牌为空
-		}
+		//处理CSRF令牌
+		csrfTokenManage.processCsrfToken(request, token,error);
 		
 		//验证码
 		boolean isCaptcha = captchaManage.question_isCaptcha(accessUser.getUserName());
@@ -760,20 +749,8 @@ public class QuestionFormAction {
 			error.put("question", ErrorView._21.name());//只读模式不允许提交数据
 		}
 			
-		
-		//判断令牌
-		if(token != null && !"".equals(token.trim())){	
-			String token_sessionid = csrfTokenManage.getToken(request);//获取令牌
-			if(token_sessionid != null && !"".equals(token_sessionid.trim())){
-				if(!token_sessionid.equals(token)){
-					error.put("token", ErrorView._13.name());//令牌错误
-				}
-			}else{
-				error.put("token", ErrorView._12.name());//令牌过期
-			}
-		}else{
-			error.put("token", ErrorView._11.name());//令牌为空
-		}
+		//处理CSRF令牌
+		csrfTokenManage.processCsrfToken(request, token,error);
 		
 		//验证码
 		boolean isCaptcha = captchaManage.question_isCaptcha(accessUser.getUserName());
@@ -1226,7 +1203,7 @@ public class QuestionFormAction {
 												fileManage.writeFile(pathDir, newFileName,file.getBytes());
 												//上传成功
 												returnJson.put("error", 0);//0成功  1错误
-												returnJson.put("url", fileManage.fileServerAddress()+"file/question/"+date+"/image/"+newFileName);
+												returnJson.put("url", fileManage.fileServerAddress(request)+"file/question/"+date+"/image/"+newFileName);
 												return JsonUtils.toJSONString(returnJson);
 											}else{
 												errorMessage = "文件超出允许上传大小";
@@ -1299,19 +1276,8 @@ public class QuestionFormAction {
 		}
 			
 		
-		//判断令牌
-		if(token != null && !"".equals(token.trim())){	
-			String token_sessionid = csrfTokenManage.getToken(request);//获取令牌
-			if(token_sessionid != null && !"".equals(token_sessionid.trim())){
-				if(!token_sessionid.equals(token)){
-					error.put("token", ErrorView._13.name());//令牌错误
-				}
-			}else{
-				error.put("token", ErrorView._12.name());//令牌过期
-			}
-		}else{
-			error.put("token", ErrorView._11.name());//令牌为空
-		}
+		//处理CSRF令牌
+		csrfTokenManage.processCsrfToken(request, token,error);
 		
 		//获取登录用户
 	  	AccessUser accessUser = AccessUserThreadLocal.get();

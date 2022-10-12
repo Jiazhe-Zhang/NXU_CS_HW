@@ -24,6 +24,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.header.HeaderWriter;
+import org.springframework.security.web.header.writers.CacheControlHeadersWriter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.util.UriUtils;
 
 import cms.web.filter.CsrfSecurityRequestMatcher;
@@ -50,15 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         return new BCryptPasswordEncoder();
     }
 
-	/**
-     * 设置不需要拦截的静态资源
-     * @param web
-     * @throws Exception
-     
-    @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/backstage/**","/common/**","/file/**");
-    }*/
+	
 	/**
      * 设置不需要拦截的静态资源
      * web.ignoring()完全绕过spring security的所有filter
@@ -66,17 +61,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
      * 不配置此项前端某些js文件会请求两次，图片延迟加载插件的图片会请求两次
      * @param web
      * @throws Exception
-     */
+     
     @Override
     public void configure(WebSecurity web) {
-     //   web.ignoring().antMatchers("/**/*.jpg","/**/*.jpeg","/**/*.png","/**/*.gif","/**/*.bmp","/**/*.css","/**/*.js");
     
     	 web.ignoring().antMatchers("/backstage/**","/common/**","/file/**");
-    	/**web.ignoring()
-    	 .antMatchers("/backstage/**")
-         .antMatchers("/common/**")
-         .antMatchers("/file/**");**/
-    }
+    }*/
     
 
 	
@@ -114,7 +104,45 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     	
     	http
  			.logout().logoutUrl("/admin/logout").disable();//关闭默认退出入口(不能删除，删除会和前台/logout冲突)
-    	
+	//.cacheControl().disable();//禁用页面缓存标头 Cache-Control: no-cache
+        
+        
+        AntPathRequestMatcher[] filterMatchers = {
+    		    new AntPathRequestMatcher("/backstage/**"),
+    		    new AntPathRequestMatcher("/common/**"),
+    		    new AntPathRequestMatcher("/file/**")
+    		};
+        
+        //禁用页面缓存标头 Cache-Control: no-cache
+        //spring security 默认会有禁止缓存标头Cache-Control: no-cache，不配置此项前端某些图片延迟加载插件的图片会重复请求两次
+        http
+        	.headers().addHeaderWriter(new HeaderWriter() {
+
+            CacheControlHeadersWriter originalWriter = new CacheControlHeadersWriter();
+
+            @Override
+            public void writeHeaders(HttpServletRequest request, HttpServletResponse response) {
+                //Collection<String> headerNames = response.getHeaderNames();
+               
+                for (AntPathRequestMatcher rm : filterMatchers) {
+        			if (rm.matches(request)) { 
+        				//String requestUri = request.getRequestURI();
+        				//默认
+        				//Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+                    	//Pragma: no-cache
+                    	//Expires: 0
+                        //清空页面缓存标头
+                    	response.setHeader("Cache-Control", ""); // HTTP 1.1.
+                    	response.setHeader("Pragma", ""); // HTTP 1.0.
+                    	response.setHeader("Expires", ""); //
+        			}
+        		}
+                
+                originalWriter.writeHeaders(request, response);
+  
+            }
+        });
+        
     	http
      		.headers().frameOptions().sameOrigin();//允许加载本站点内的页面
     	http

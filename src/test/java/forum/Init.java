@@ -122,7 +122,7 @@ public class Init {
 			}
 
 			//通过查询运行设置字符集的命令
-            conn.prepareStatement("set names utf8mb4").executeQuery();
+            conn.prepareStatement("set names utf8mb4").executeUpdate();
             
             
 			String path = user_dir+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"WEB-INF"+File.separator+"data"+File.separator+"install"+File.separator;

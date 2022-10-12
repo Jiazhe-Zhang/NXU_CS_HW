@@ -49,6 +49,7 @@ import cms.utils.PathUtil;
 import cms.utils.SHA;
 import cms.utils.SqlFile;
 import cms.utils.UUIDUtil;
+import cms.web.action.upgrade.UpgradeManage;
 
 
 /**
@@ -61,7 +62,7 @@ public class InstallManageAction {
 	
 	@Resource InstallManage installManage; 
 	@Resource DataService mySqlDataService;
-	
+	@Resource UpgradeManage upgradeManage;
 	
 	@Autowired
     private DataSource dataSource;
@@ -262,7 +263,7 @@ public class InstallManageAction {
 				try {
 					conn = dataSource.getConnection();
 					//通过查询运行设置字符集的命令
-	                conn.prepareStatement("set names utf8mb4").executeQuery();
+	                conn.prepareStatement("set names utf8mb4").executeUpdate();
 			
 					//String path = PathUtil.path()+File.separator+"WEB-INF"+File.separator+"data"+File.separator+"install"+File.separator;
 					
@@ -339,6 +340,9 @@ public class InstallManageAction {
 				
 				//写入禁止安装系统
 				FileUtil.writeStringToFile("WEB-INF"+File.separator+"data"+File.separator+"install"+File.separator+"status.txt","1","utf-8",false);
+				
+				//写入初始版本号
+				FileUtil.writeStringToFile("WEB-INF"+File.separator+"data"+File.separator+"install"+File.separator+"originalVersion.txt",upgradeManage.readCurrentVersion(),"utf-8",false);
 			}
 			
 			

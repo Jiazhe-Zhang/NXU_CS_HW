@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>bbs</groupId>
 	<artifactId>bbs-pro</artifactId>
-	<version>5.7</version>
+	<version>5.8</version>
  
 	<properties>
     	<webVersion>3.1</webVersion>
@@ -10,15 +10,15 @@
     	<!-- 声明项目配置依赖编码格式为 utf-8 -->
     	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- 指定log4j2版本 -->
-		<log4j2.version>2.17.1</log4j2.version>
+		<!-- 指定mysql驱动版本   mysql-connector-java-8.0.27之后的版本在jar启动环境时必须设置环境变量-Dfile.encoding=UTF8 ，否则bean类注释为@Lob时，会报 Incorrect string value 错误。   Windows下正确启动命令示例：java -Dfile.encoding=utf-8 -jar cms-pro.jar -->
+		<mysql.version>8.0.26</mysql.version>
 	</properties>
  
 	<parent>
 		<!-- 依赖管理，引入以后在声明其它dependency的时候就不需要version -->
     	<groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.3</version>
+         <version>2.6.8</version>
     </parent>
 	<dependencies>
 		<!-- 对web开发的支持，包含了spring webmvc和tomcat等web开发的特性 -->
@@ -259,7 +259,11 @@
 		    <version>7.2.1</version>
 		</dependency>
 		
-		
+		<dependency>
+		    <groupId>org.javassist</groupId>
+		    <artifactId>javassist</artifactId>
+		    <version>3.28.0-GA</version>
+		</dependency>
 		
 		
 		<dependency>

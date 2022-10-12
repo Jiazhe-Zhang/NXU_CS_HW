@@ -72,20 +72,8 @@ public class UpgradeManageAction {
 	public String upgradeSystemList(ModelMap model,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String,Object> returnValue = new HashMap<String,Object>();
-		
-		String currentVersion = "";
 		//读取当前系统版本
-		ClassPathResource classPathResource = new ClassPathResource("WEB-INF/data/systemVersion.txt");
-		try (InputStream inputStream = classPathResource.getInputStream()){
-			currentVersion = IOUtils.toString(inputStream, StandardCharsets.UTF_8); 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			//e1.printStackTrace();
-			if (logger.isErrorEnabled()) {
-	            logger.error("读取当前系统版本IO异常",e);
-	        }
-		}
-		
+		String currentVersion = upgradeManage.readCurrentVersion();
 		
 		List<UpgradeSystem> upgradeSystemList = upgradeService.findAllUpgradeSystem();
 		UpgradeSystem notCompletedUpgrade = null;//未完成升级
@@ -270,7 +258,19 @@ public class UpgradeManageAction {
 						error.put("upgradeNow", "版本校验不通过");
 					}
 				}else{
-					verificationVersion = true;
+					String currentVersion = upgradeManage.readCurrentVersion();
+					
+					String originalVersion = upgradeManage.readOriginalVersion();
+
+					if(originalVersion != null && !"".equals(originalVersion.trim())){
+						if(currentVersion.trim().equals(originalVersion.trim())){
+							error.put("upgradeNow", "初始版本号和当前系统版本号相同，不允许升级");
+						}else{
+							verificationVersion = true;
+						}
+					}else{
+						error.put("upgradeNow", "读取初始版本号为空");
+					}
 				}
 				
 				

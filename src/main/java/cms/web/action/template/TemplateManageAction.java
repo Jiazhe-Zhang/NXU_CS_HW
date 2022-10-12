@@ -118,6 +118,7 @@ public class TemplateManageAction {
 			templates.setName(formbean.getName().trim());
 			templates.setDirName(formbean.getDirName().trim());
 			templates.setIntroduction(formbean.getIntroduction());
+			templates.setVerifyCSRF(formbean.getVerifyCSRF());
 			
 			//图片上传
 			List<MultipartFile> files = request.getFiles("uploadImage"); 
@@ -249,7 +250,8 @@ public class TemplateManageAction {
 			templates.setName(formbean.getName().trim());
 			templates.setDirName(formbean.getDirName().trim());
 			templates.setIntroduction(formbean.getIntroduction());
-
+			templates.setVerifyCSRF(formbean.getVerifyCSRF());
+			
 			if(imagePath != null && !"".equals(imagePath.trim())){
 				templates.setThumbnailSuffix(old_templates.getThumbnailSuffix());
 			}else{
@@ -267,7 +269,7 @@ public class TemplateManageAction {
 			
 			//图片上传
 			List<MultipartFile> files = request.getFiles("uploadImage"); 
-			if(files != null && files.size() ==0){
+			if(files != null && files.size() ==0 && (imagePath == null || "".equals(imagePath.trim()))){
 				flag = true;
 			}
 			

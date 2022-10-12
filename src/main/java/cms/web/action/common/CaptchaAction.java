@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.code.kaptcha.Producer;
 
+import cms.utils.FileUtil;
 import cms.web.action.setting.SettingManage;
 
 /**
@@ -64,6 +65,9 @@ public class CaptchaAction {
 
 
         if(captchaKey != null && !"".equals(captchaKey.trim())){
+        	//删除jpg后缀
+        	captchaKey = FileUtil.getBaseName(captchaKey.trim());
+        	
         	//统计每分钟原来提交次数
 			Integer quantity = settingManage.getSubmitQuantity("captcha", captchaKey.trim());
         	if(quantity != null && quantity >60){//如果每分钟提交超过60次，则不再生成验证码
