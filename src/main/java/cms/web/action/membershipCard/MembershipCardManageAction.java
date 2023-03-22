@@ -1076,7 +1076,7 @@ public class MembershipCardManageAction {
 	@ResponseBody
 	@RequestMapping(params="method=upload",method=RequestMethod.POST)
 	public String upload(ModelMap model,String dir,String fileName,
-			MultipartFile file, HttpServletResponse response) throws Exception {
+			MultipartFile file, HttpServletRequest request,HttpServletResponse response) throws Exception {
 
 		Map<String,Object> returnJson = new HashMap<String,Object>();
 		String errorMessage  = "";
@@ -1251,7 +1251,7 @@ public class MembershipCardManageAction {
 				
 							//上传成功
 							returnJson.put("error", 0);//0成功  1错误
-							returnJson.put("url", fileManage.fileServerAddress()+"file/membershipCard/"+date+"/image/"+newFileName);
+							returnJson.put("url", fileManage.fileServerAddress(request)+"file/membershipCard/"+date+"/image/"+newFileName);
 							return JsonUtils.toJSONString(returnJson);
 							
 						}else{
@@ -1285,7 +1285,7 @@ public class MembershipCardManageAction {
 							
 							//上传成功
 							returnJson.put("error", 0);//0成功  1错误
-							returnJson.put("url", fileManage.fileServerAddress()+"file/membershipCard/"+date+"/flash/"+newFileName);
+							returnJson.put("url", fileManage.fileServerAddress(request)+"file/membershipCard/"+date+"/flash/"+newFileName);
 							return JsonUtils.toJSONString(returnJson);
 						}else{
 							errorMessage = "当前文件类型不允许上传";
@@ -1319,7 +1319,7 @@ public class MembershipCardManageAction {
 
 							//上传成功
 							returnJson.put("error", 0);//0成功  1错误
-							returnJson.put("url", fileManage.fileServerAddress()+"file/membershipCard/"+date+"/media/"+newFileName);
+							returnJson.put("url", fileManage.fileServerAddress(request)+"file/membershipCard/"+date+"/media/"+newFileName);
 							return JsonUtils.toJSONString(returnJson);
 						}else{
 							errorMessage = "当前文件类型不允许上传";
@@ -1348,7 +1348,7 @@ public class MembershipCardManageAction {
 							
 							//上传成功
 							returnJson.put("error", 0);//0成功  1错误
-							returnJson.put("url", fileManage.fileServerAddress()+"file/membershipCard/"+date+"/file/"+newFileName);
+							returnJson.put("url", fileManage.fileServerAddress(request)+"file/membershipCard/"+date+"/file/"+newFileName);
 							returnJson.put("title", file.getOriginalFilename());//旧文件名称
 							return JsonUtils.toJSONString(returnJson);
 						}else{

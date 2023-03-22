@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * 用户首次登录系统时，会在地址后面加个jsessionid=xxx
  *
  */
-@WebFilter(urlPatterns = "/*",filterName = "disableUrlSessionFilter")
+@WebFilter(urlPatterns = "/*",filterName = "disableUrlSessionFilter",asyncSupported = true)
 public class DisableUrlSessionFilter implements Filter{
  
 	@Override
