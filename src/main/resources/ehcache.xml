@@ -804,6 +804,16 @@
             <heap unit="entries">900000</heap>
         </resources>
     </cache>
+    <!-- 举报分类 - 查询所有举报分类 -->	
+    <cache alias="findAllReportType_cache" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1</heap>
+        </resources>
+    </cache>
 	<!-- 文件存储系统接口 (更新一个全部刷新) -->	
     <cache alias="fileSystemServiceBean_cache" uses-template="template">
         <expiry>
