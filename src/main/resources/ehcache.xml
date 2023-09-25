@@ -234,6 +234,16 @@
             <heap unit="entries">99999999</heap>
         </resources>
     </cache>
+    <!-- 话题 - 查询热门话题 -->	
+    <cache alias="topicServiceBean_cache_findHotTopic" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">60</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1</heap>
+        </resources>
+    </cache>
 	<!-- 评论 - 评论缓存 -->
     <cache alias="commentManage_cache_findByCommentId" uses-template="template">
         <expiry>
