@@ -389,7 +389,7 @@ export default({
 		    	
 				this.$ajax({
 			        method: 'post',
-			        url: 'control/upgrade/manage?method=upgradeNow',
+			        url: 'control/upgrade/manage?method=upgradeNow&a=a',//a=a参数的作用是仅增加连接符&
 			        data: formData
 				})
 				.then(function (response) {
@@ -470,7 +470,7 @@ export default({
 	    	
 			this.$ajax({
 		        method: 'post',
-		        url: 'control/upgrade/manage?method=continueUpgrade',
+		        url: 'control/upgrade/manage?method=continueUpgrade&a=a',//a=a参数的作用是仅增加连接符&
 		        data: formData
 			})
 			.then(function (response) {

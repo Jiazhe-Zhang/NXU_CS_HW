@@ -64,6 +64,11 @@ public class InstallManage {
 		folderList.add("file/topic/thumbnailMarker");
 		folderList.add("file/report");
 		folderList.add("file/report/lock");
+		folderList.add("file/staffAvatar");
+		folderList.add("file/topicTag");
+		folderList.add("file/topicTag/lock");
+		folderList.add("file/questionTag");
+		folderList.add("file/questionTag/lock");
 		
 		folderList.add("WEB-INF/foregroundView");
 		folderList.add("WEB-INF/ffmpeg");

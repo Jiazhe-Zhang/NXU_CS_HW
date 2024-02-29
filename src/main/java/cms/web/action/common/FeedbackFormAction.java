@@ -143,7 +143,7 @@ public class FeedbackFormAction {
 			error.put("contact", ErrorView._303.name());//联系方式不能为空
 		}
 		if(content != null && !"".equals(content.trim())){
-			if(contact.trim().length() >1000){
+			if(content.trim().length() >1000){
 				error.put("content", ErrorView._306.name());//字符超长
 			}else{
 				feedback.setContent(content.trim());

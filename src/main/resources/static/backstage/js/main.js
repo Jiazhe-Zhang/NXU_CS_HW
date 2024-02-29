@@ -584,7 +584,13 @@ var index_component = {
 				
 			}
 		},
-		
+		//跳转网页
+		jumpPage : function(url) {
+			let baseURL = app.config.globalProperties.$store.state.baseURL;
+			
+			window.location.href=baseURL + url;
+		},
+				
 		//查询后台管理框架页信息
 		queryManageFramework : function() {
 			let _self = this;
@@ -1991,6 +1997,7 @@ var routes = [
 	              			next();
 	              		}
 	              	},//修改员工
+	              	{path : '/admin/control/staff/manage/editSelfInfo',component : () => loadModule('./admin/component/staff/editSelfInfo.vue', options),name:'editSelfInfo',meta: {parent:'2-200300-1',title:'修改员工自身信息'}},//修改员工自身信息
 	              	{path : '/admin/control/staffLoginLog/list',component : () => loadModule('./admin/component/staff/staffLoginLogList.vue', options),name:'staffLoginLogList',meta: {parent:'2-200300-1',title:'员工登录日志'},
 	              		beforeEnter: (to, from, next) => {
 	              			if(from.name == 'staffList'){//如果来自员工列表,则删除缓存

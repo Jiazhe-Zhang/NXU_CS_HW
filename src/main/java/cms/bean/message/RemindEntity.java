@@ -105,7 +105,9 @@ public class RemindEntity implements Serializable{
 	protected Long friendQuestionAnswerId;
 	/** 对方的问题回复Id **/
 	protected Long friendQuestionReplyId;
-	
+	/** 内容摘要 **/
+	@Transient
+	protected String summary;
 	
 	public String getId() {
 		return id;
@@ -262,6 +264,12 @@ public class RemindEntity implements Serializable{
 	}
 	public void setSenderAccount(String senderAccount) {
 		this.senderAccount = senderAccount;
+	}
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 	

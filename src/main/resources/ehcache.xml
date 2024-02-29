@@ -288,7 +288,7 @@
     <cache alias="topicManage_cache_ipRecord" uses-template="template">
         <expiry>
             <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
-            <ttl unit="seconds">86400</ttl>
+            <ttl unit="seconds">1800</ttl>
         </expiry>
         <resources>
             <heap unit="entries">9999999</heap>
@@ -308,7 +308,7 @@
     <cache alias="questionManage_cache_ipRecord" uses-template="template">
         <expiry>
             <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
-            <ttl unit="seconds">86400</ttl>
+            <ttl unit="seconds">1800</ttl>
         </expiry>
         <resources>
             <heap unit="entries">9999999</heap>
@@ -384,6 +384,26 @@
             <heap unit="entries">99999999</heap>
         </resources>
     </cache>
+    <!-- 根据账号查询当前员工 -->	
+    <cache alias="staffManage_cache_findByUserAccount" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    <!-- 根据呢称查询当前员工 -->	
+    <cache alias="staffManage_cache_findByNickname" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
 	<!-- 查询员工安全摘要 -->	
     <cache alias="staffManage_cache_staffSecurityDigest" uses-template="template">
         <expiry>
@@ -399,6 +419,36 @@
         <expiry>
             <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
             <ttl unit="seconds">120</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">100000</heap>
+        </resources>
+    </cache>
+    <!-- 查询员工的权限菜单 -->	
+    <cache alias="staffManage_cache_queryStaffPermissionMenu" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">1800</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">100000</heap>
+        </resources>
+    </cache>
+    <!-- 查询所有权限  -->	
+    <cache alias="staffManage_cache_queryAllAuthorities" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1</heap>
+        </resources>
+    </cache>
+    <!-- 查询员工的权限 -->	
+    <cache alias="staffManage_cache_queryUserAuthoritiesByName" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">1800</ttl>
         </expiry>
         <resources>
             <heap unit="entries">100000</heap>
@@ -904,5 +954,5 @@
             <heap unit="entries">1</heap>
         </resources>
     </cache>
-
+    
 </config>

@@ -282,7 +282,7 @@ public class InstallManageAction {
 					// 密码通过盐值加密以备存储入数据库
 					String newPassword = passwordEncoder.encode(SHA.sha256Hex(formbean.getUserPassword().trim()));
 					
-					String sql = "INSERT INTO `sysusers` (`userId`,`enabled`,`fullName`,`issys`,`securityDigest`,`userAccount`,`userDesc`,`userDuty`,`userPassword`) VALUES ('"+UUIDUtil.getUUID32()+"',b'1','"+formbean.getUserAccount().trim()+"',b'1','"+UUIDUtil.getUUID32()+"','"+formbean.getUserAccount().trim()+"',NULL,'管理员','"+newPassword+"')";
+					String sql = "INSERT INTO `sysusers` (`userId`,`enabled`,`fullName`,`issys`,`securityDigest`,`userAccount`,`userDesc`,`userDuty`,`userPassword`,`nickname`) VALUES ('"+UUIDUtil.getUUID32()+"',b'1','"+formbean.getUserAccount().trim()+"',b'1','"+UUIDUtil.getUUID32()+"','"+formbean.getUserAccount().trim()+"','','管理员','"+newPassword+"','')";
 					
 					stmt = conn.createStatement();
 					stmt.executeUpdate(sql);

@@ -59,6 +59,9 @@ public class UserDynamicEntity implements Serializable{
 	/** 回复Id -1表示默认空值 **/
 	protected Long replyId = -1L;
 	
+	/** 是否使用Markdown **/
+	@Transient
+	protected Boolean isMarkdown;
 	/** 话题标题 **/
 	@Transient
 	protected String topicTitle;
@@ -377,6 +380,14 @@ public class UserDynamicEntity implements Serializable{
 
 	public void setAccount(String account) {
 		this.account = account;
+	}
+
+	public Boolean getIsMarkdown() {
+		return isMarkdown;
+	}
+
+	public void setIsMarkdown(Boolean isMarkdown) {
+		this.isMarkdown = isMarkdown;
 	}
 	
 }
