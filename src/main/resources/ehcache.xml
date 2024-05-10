@@ -604,6 +604,111 @@
             <heap unit="entries">900000</heap>
         </resources>
     </cache>
+    <!-- 根据Id查询评论点赞 -->	
+    <cache alias="likeManage_cache_findCommentLikeById" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    <!-- 根据评论Id查询被点赞数量 -->	
+    <cache alias="likeManage_cache_findLikeCountByCommentId" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    
+    <!-- 根据Id查询评论回复点赞 -->	
+    <cache alias="likeManage_cache_findCommentReplyLikeById" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    <!-- 根据评论回复Id查询被点赞数量 -->	
+    <cache alias="likeManage_cache_findLikeCountByCommentReplyId" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    
+    <!-- 根据Id查询问题点赞 -->	
+    <cache alias="likeManage_cache_findQuestionLikeById" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    <!-- 根据问题Id查询被点赞数量 -->	
+    <cache alias="likeManage_cache_findLikeCountByQuestionId" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    
+    <!-- 根据Id查询答案点赞 -->	
+    <cache alias="likeManage_cache_findAnswerLikeById" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    <!-- 根据答案Id查询被点赞数量 -->	
+    <cache alias="likeManage_cache_findLikeCountByAnswerId" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    
+    <!-- 根据Id查询答案回复点赞 -->	
+    <cache alias="likeManage_cache_findAnswerReplyLikeById" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    <!-- 根据答案回复Id查询被点赞数量 -->	
+    <cache alias="likeManage_cache_findLikeCountByAnswerReplyId" uses-template="template">
+        <expiry>
+            <!-- 通过ttl指定了cache过期时间,java.wechatutil.concurrent.TimeUnit中的属性，单位/秒 -->
+            <ttl unit="seconds">3600</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">900000</heap>
+        </resources>
+    </cache>
+    
 	<!-- 根据Id查询问题收藏 -->	
     <cache alias="favoriteManage_cache_findQuestionFavoriteById" uses-template="template">
         <expiry>

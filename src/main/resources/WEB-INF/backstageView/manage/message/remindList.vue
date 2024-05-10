@@ -120,6 +120,33 @@
 	                        <span v-if="scope.row.typeCode == 190">
 								我关注的 {{scope.row.senderAccount}} 在 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/question/manage/view', query:{ questionId : scope.row.questionId,answerId:scope.row.friendQuestionAnswerId, replyId:scope.row.friendQuestionReplyId}})">{{scope.row.questionTitle}}</el-link> 发表了答案回复
 	                        </span>
+	                        <span v-if="scope.row.typeCode == 200">
+								在话题 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/topic/manage/view', query:{ topicId : scope.row.topicId}})">{{scope.row.topicTitle}}</el-link> 提到我
+							</span>
+	                        <span v-if="scope.row.typeCode == 210">
+								在评论 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/topic/manage/view', query:{ topicId : scope.row.topicId,commentId:scope.row.friendTopicCommentId}})">{{scope.row.topicTitle}}</el-link> 提到我
+							</span>
+	                        <span v-if="scope.row.typeCode == 230">
+								在问题 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/question/manage/view', query:{ questionId : scope.row.questionId}})">{{scope.row.questionTitle}}</el-link> 提到我
+							</span>
+	                        <span v-if="scope.row.typeCode == 240">
+								在答案 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/question/manage/view', query:{ questionId : scope.row.questionId,answerId:scope.row.friendQuestionAnswerId}})">{{scope.row.questionTitle}}</el-link> 提到我
+							</span>
+	                        <span v-if="scope.row.typeCode == 260">
+								在 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/topic/manage/view', query:{ topicId : scope.row.topicId,commentId:scope.row.topicCommentId}})">{{scope.row.topicTitle}}</el-link> 赞了我的评论
+							</span>
+	                        <span v-if="scope.row.typeCode == 270">
+								在 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/topic/manage/view', query:{ topicId : scope.row.topicId,commentId:scope.row.topicCommentId,replyId:scope.row.topicReplyId}})">{{scope.row.topicTitle}}</el-link> 赞了我的评论回复
+							</span>
+	                       	<span v-if="scope.row.typeCode == 280">
+								在 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/question/manage/view', query:{ questionId : scope.row.questionId}})">{{scope.row.questionTitle}}</el-link> 赞了我的问题
+							</span>
+	                        <span v-if="scope.row.typeCode == 290">
+								在 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/question/manage/view', query:{ questionId : scope.row.questionId,answerId:scope.row.questionAnswerId}})">{{scope.row.questionTitle}}</el-link> 赞了我的答案
+							</span>
+							<span v-if="scope.row.typeCode == 300">
+								在 <el-link class="sourceTitle" href="javascript:void(0);" @click="$store.commit('setCacheNumber'); $router.push({path: '/admin/control/question/manage/view', query:{ questionId : scope.row.questionId,answerId:scope.row.questionAnswerId,replyId:scope.row.questionReplyId}})">{{scope.row.questionTitle}}</el-link> 赞了我的答案回复
+							</span>
 				    	</template>
 					</el-table-column>
 					<el-table-column prop="sendTime" label="发送时间" align="center" width="150"></el-table-column>

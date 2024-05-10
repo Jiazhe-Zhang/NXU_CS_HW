@@ -330,9 +330,13 @@ public class UserFormManageAction {
 						}
 						
 						
-						User u = userService.findUserByAccount(formbean.getAccount().trim());
-						if(u != null){
+						User u1 = userService.findUserByAccount(formbean.getAccount().trim());
+						if(u1 != null){
 							error.put("account", ErrorView._814.name());//该账号已注册
+						}	
+						User u2 = userService.findUserByNickname(formbean.getAccount().trim());
+						if(u2 != null){
+							error.put("account", ErrorView._839.name());//该账号不能和其他用户呢称相同
 						}	
 						user.setAccount(formbean.getAccount().trim());
 					}else{
@@ -821,8 +825,12 @@ public class UserFormManageAction {
 				}
 			}
 
-			User u = userService.findUserByAccount(account.trim());
-			if(u != null){
+			User u1 = userService.findUserByAccount(account.trim());
+			if(u1 != null){
+				return "true";
+			}	
+			User u2 = userService.findUserByNickname(account.trim());
+			if(u2 != null){
 				return "true";
 			}
 		}

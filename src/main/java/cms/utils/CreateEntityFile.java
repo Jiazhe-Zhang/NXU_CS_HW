@@ -133,6 +133,52 @@ public class CreateEntityFile {
 				CreateBean.createTopicLikeBean(i);
 			}	
 		}
+		//评论点赞分表数量
+		int commentLikeConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.commentLikeConfig_tableQuantity"));
+		if(commentLikeConfig_tableQuantity >1){
+			for(int i =1; i<commentLikeConfig_tableQuantity; i++){
+				
+				//初始化评论点赞bean
+				CreateBean.createCommentLikeBean(i);
+			}	
+		}
+		//评论回复点赞分表数量
+		int commentReplyLikeConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.commentReplyLikeConfig_tableQuantity"));
+		if(commentReplyLikeConfig_tableQuantity >1){
+			for(int i =1; i<commentReplyLikeConfig_tableQuantity; i++){
+				
+				//初始化评论回复点赞bean
+				CreateBean.createCommentReplyLikeBean(i);
+			}	
+		}
+		
+		//问题点赞分表数量
+		int questionLikeConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.questionLikeConfig_tableQuantity"));
+		if(questionLikeConfig_tableQuantity >1){
+			for(int i =1; i<questionLikeConfig_tableQuantity; i++){
+				
+				//初始化问题点赞bean
+				CreateBean.createQuestionLikeBean(i);
+			}	
+		}
+		//答案点赞分表数量
+		int answerLikeConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.answerLikeConfig_tableQuantity"));
+		if(answerLikeConfig_tableQuantity >1){
+			for(int i =1; i<answerLikeConfig_tableQuantity; i++){
+				
+				//初始化答案点赞bean
+				CreateBean.createAnswerLikeBean(i);
+			}	
+		}
+		//答案回复点赞分表数量
+		int answerReplyLikeConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.answerReplyLikeConfig_tableQuantity"));
+		if(answerReplyLikeConfig_tableQuantity >1){
+			for(int i =1; i<answerReplyLikeConfig_tableQuantity; i++){
+				
+				//初始化答案回复点赞bean
+				CreateBean.createAnswerReplyLikeBean(i);
+			}	
+		}
 		//关注分表数量
 		int followConfig_tableQuantity = Integer.parseInt(properties.getProperty("bbs.sharding.followConfig_tableQuantity"));
 		if(followConfig_tableQuantity >1){

@@ -125,6 +125,15 @@ public class StringUtil {
     	return html.replaceAll("(?i)&nbsp;","");
     }
    
+    /**
+     * 删除所有空格
+     * @param txt
+     * @return
+     */
+    public static String deleteWhitespace(String txt){
+    	return  StringUtils.deleteWhitespace(txt);
+    }
+    
     /** 
      * 转义like语句中的 
      * <code>'_'</code><code>'%'</code> 

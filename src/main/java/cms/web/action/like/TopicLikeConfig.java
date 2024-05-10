@@ -30,7 +30,7 @@ public class TopicLikeConfig {
 	  * @return
 	 */
 	public Integer topicLikeIdRemainder(String topicLikeId){
-	   int topicId = likeManage.getTopicLikeId(topicLikeId);
+	   int topicId = likeManage.getItemLikeId(topicLikeId);
 	   return topicId % this.getTableQuantity();
 	} 
    /**

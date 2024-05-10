@@ -9,7 +9,7 @@
 				</el-breadcrumb>
 			</div>
 			<div class="navbar">
-				<el-button type="primary" plain size="small" @click="$router.push({path: '/admin/control/questionTag/manage/add',query:{sourceParentId:($route.query.parentId != undefined ? $route.query.parentId:''), parentId : parentId,page:($route.query.page != undefined ? $route.query.page:'')}});">添加标签</el-button>
+				<el-button type="primary" plain size="small" @click="$router.push({path: '/admin/control/questionTag/manage/add',query:{sourceParentId:($route.query.parentId != undefined ? $route.query.parentId:''),parentId : parentId, page:($route.query.page != undefined ? $route.query.page:'')}});">添加标签</el-button>
 			</div>
 			<div class="data-table" >
 				<el-table :data="tableData" tooltip-effect="dark" style="width: 100%" @cell-click="cellExpandRow"  stripe empty-text="没有内容">
@@ -20,6 +20,11 @@
 				    	</template>
 					</el-table-column>
 					<el-table-column prop="childNodeNumber" label="下级标签数量" align="center" width="120"></el-table-column>
+					<el-table-column label="图片" align="center" width="200">
+						<template #default="scope">
+			          		<el-image v-if="scope.row.image != null && scope.row.image != ''" style="width: 120px; height: 120px" fit="contain" :src="scope.row.image+'?time='+new Date().getTime()" :preview-src-list="[scope.row.image+'?time='+new Date().getTime()]" hide-on-click-modal ></el-image>
+				    	</template>
+					</el-table-column>
 					<el-table-column prop="sort" label="排序" align="center" width="100"></el-table-column>
 					<el-table-column label="操作" align="center" width="300">
 						<template #default="scope">

@@ -2090,7 +2090,8 @@ var thread_component = Vue.extend({
 		//查询用户是否已经点赞该话题
 		queryAlreadyLiked : function() {
 			var _self = this;
-			var data = "topicId=" + _self.topicId; //提交参数
+			var data = "itemId=" + _self.topicId; //提交参数
+			data += "&module=10"
 			$.ajax({
 				type : "GET",
 				cache : false,
@@ -2110,7 +2111,8 @@ var thread_component = Vue.extend({
 		//查询话题点赞总数
 		queryLikeCount : function() {
 			var _self = this;
-			var data = "topicId=" + _self.topicId; //提交参数
+			var data = "itemId=" + _self.topicId; //提交参数
+			data += "&module=10"
 			$.ajax({
 				type : "GET",
 				cache : false,
@@ -2128,11 +2130,12 @@ var thread_component = Vue.extend({
 			});
 		},
 		//给话题点赞
-		addLike : function(id) {
+		addLike : function(id,module) {
 			var _self = this;
 			_self.$messagebox.confirm('确定点赞?').then(function (action) {
-				var parameter = "&topicId=" + id;
+				var parameter = "&itemId=" + id;
 
+				parameter += "&module=" + module;
 				//	alert(parameter);
 				//令牌
 				parameter += "&token=" + _self.$store.state.token;

@@ -19,6 +19,11 @@ bbs:
     userDynamicConfig_tableQuantity: 4 #用户动态配置分表数量
     likeConfig_tableQuantity: 4 #点赞配置分表数量
     topicLikeConfig_tableQuantity: 4 #话题点赞配置分表数量
+    commentLikeConfig_tableQuantity: 4 #评论点赞配置分表数量
+    commentReplyLikeConfig_tableQuantity: 4 #评论回复点赞配置分表数量
+    questionLikeConfig_tableQuantity: 4 #问题点赞配置分表数量
+    answerLikeConfig_tableQuantity: 4 #答案点赞配置分表数量
+    answerReplyLikeConfig_tableQuantity: 4 #答案回复点赞配置分表数量
     followConfig_tableQuantity: 4 #关注配置分表数量
     followerConfig_tableQuantity: 4 #粉丝配置分表数量
     paymentLogConfig_tableQuantity: 4 #支付日志配置分表数量

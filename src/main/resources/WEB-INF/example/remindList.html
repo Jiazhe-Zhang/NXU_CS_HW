@@ -623,7 +623,370 @@
 			<td>Long</td>
 			<td colspan="2">对方的问题回复Id</td>
 		</tr>
-
+		<tr> 
+			<td rowspan="3">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 170:我关注的人提了问题</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td rowspan="4">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 180:我关注的人回答了问题</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>friendQuestionAnswerId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的问题答案Id</td>
+		</tr>
+		<tr> 
+			<td rowspan="6">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 190:我关注的人发表了答案回复</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>friendQuestionAnswerId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的问题答案Id</td>
+		</tr>
+		<tr> 
+			<td>friendQuestionReplyId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的问题回复Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		
+		<tr> 
+			<td rowspan="4">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 200:别人在话题提到我</td>
+		</tr>
+		<tr> 
+			<td>topicId</td> 
+			<td>Long</td>
+			<td colspan="2">话题Id</td>
+		</tr>
+		<tr> 
+			<td>topicTitle</td> 
+			<td>String</td>
+			<td colspan="2">话题标题</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="5">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 210:别人在评论提到我</td>
+		</tr>
+		<tr> 
+			<td>topicId</td> 
+			<td>Long</td>
+			<td colspan="2">话题Id</td>
+		</tr>
+		<tr> 
+			<td>topicTitle</td> 
+			<td>String</td>
+			<td colspan="2">话题标题</td>
+		</tr>
+		<tr> 
+			<td>friendTopicCommentId</td> 
+			<td>String</td>
+			<td colspan="2">对方的话题评论Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		
+		<tr> 
+			<td rowspan="6">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 220:别人在评论回复提到我</td>
+		</tr>
+		<tr> 
+			<td>topicId</td> 
+			<td>Long</td>
+			<td colspan="2">话题Id</td>
+		</tr>
+		<tr> 
+			<td>topicTitle</td> 
+			<td>String</td>
+			<td colspan="2">话题标题</td>
+		</tr>
+		<tr> 
+			<td>friendTopicCommentId</td> 
+			<td>String</td>
+			<td colspan="2">对方的话题评论Id</td>
+		</tr>
+		<tr> 
+			<td>friendTopicReplyId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的话题回复Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="4">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 230:别人在问题提到我</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="5">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 240:别人在答案提到我</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>friendQuestionAnswerId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的问题答案Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="6">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 250:别人在答案回复提到我</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>friendQuestionAnswerId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的问题答案Id</td>
+		</tr>
+		<tr> 
+			<td>friendQuestionReplyId</td> 
+			<td>Long</td>
+			<td colspan="2">对方的问题回复Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		
+		<tr> 
+			<td rowspan="5">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 260:别人点赞了我的评论</td>
+		</tr>
+		<tr> 
+			<td>topicId</td> 
+			<td>Long</td>
+			<td colspan="2">话题Id</td>
+		</tr>
+		<tr> 
+			<td>topicTitle</td> 
+			<td>String</td>
+			<td colspan="2">话题标题</td>
+		</tr>
+		<tr> 
+			<td>topicCommentId</td> 
+			<td>String</td>
+			<td colspan="2">我的话题评论Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="6">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 270:别人点赞了我的评论回复</td>
+		</tr>
+		<tr> 
+			<td>topicId</td> 
+			<td>Long</td>
+			<td colspan="2">话题Id</td>
+		</tr>
+		<tr> 
+			<td>topicTitle</td> 
+			<td>String</td>
+			<td colspan="2">话题标题</td>
+		</tr>
+		<tr> 
+			<td>topicCommentId</td> 
+			<td>String</td>
+			<td colspan="2">我的话题评论Id</td>
+		</tr>
+		<tr> 
+			<td>topicReplyId</td> 
+			<td>String</td>
+			<td colspan="2">我的话题回复Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="4">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 280:别人点赞了我的问题</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="5">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 290:别人点赞了我的答案</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>questionAnswerId</td> 
+			<td>String</td>
+			<td colspan="2">我的问题答案Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		<tr> 
+			<td rowspan="6">typeCode</td> 
+			<td><div class="mask"></div></td>
+			<td>Integer</td>
+			<td colspan="2">提醒类型代码编号 300:别人点赞了我的答案回复</td>
+		</tr>
+		<tr> 
+			<td>questionId</td> 
+			<td>Long</td>
+			<td colspan="2">问题Id</td>
+		</tr>
+		<tr> 
+			<td>questionTitle</td> 
+			<td>String</td>
+			<td colspan="2">问题标题</td>
+		</tr>
+		<tr> 
+			<td>questionAnswerId</td> 
+			<td>String</td>
+			<td colspan="2">我的问题答案Id</td>
+		</tr>
+		<tr> 
+			<td>questionReplyId</td> 
+			<td>String</td>
+			<td colspan="2">我的问题回复Id</td>
+		</tr>
+		<tr> 
+			<td>summary</td> 
+			<td>String</td>
+			<td colspan="2">内容摘要</td>
+		</tr>
+		
+		 260.别人点赞了我的评论  270.别人点赞了我的评论回复  280.别人点赞了我的问题  290.别人点赞了我的答案  300.别人点赞了我的答案回复
 	</tbody> 
 </table>
 
