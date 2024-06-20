@@ -24,7 +24,7 @@ import cms.service.user.UserService;
 import cms.web.action.SystemException;
 import cms.web.action.payment.PaymentManage;
 import cms.web.action.redEnvelope.ReceiveRedEnvelopeConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 红包管理实现类

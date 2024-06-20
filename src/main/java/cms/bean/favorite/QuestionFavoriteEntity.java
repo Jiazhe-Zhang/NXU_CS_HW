@@ -35,7 +35,10 @@ public class QuestionFavoriteEntity implements Serializable{
 	
 	/** 问题Id **/
 	protected Long questionId;
-
+	/** 收藏夹Id **/
+	@Column(length=36)
+	protected String favoriteId;
+	
 	/** 问题标题 **/
 	@Transient
 	protected String questionTitle;
@@ -86,6 +89,14 @@ public class QuestionFavoriteEntity implements Serializable{
 
 	public void setQuestionTitle(String questionTitle) {
 		this.questionTitle = questionTitle;
+	}
+
+	public String getFavoriteId() {
+		return favoriteId;
+	}
+
+	public void setFavoriteId(String favoriteId) {
+		this.favoriteId = favoriteId;
 	}
 
 	

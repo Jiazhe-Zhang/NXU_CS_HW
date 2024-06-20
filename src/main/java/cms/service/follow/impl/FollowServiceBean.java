@@ -19,7 +19,7 @@ import cms.service.besa.DaoSupport;
 import cms.service.follow.FollowService;
 import cms.web.action.follow.FollowConfig;
 import cms.web.action.follow.FollowerConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 关注

@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 import cms.bean.payment.PaymentLog;
 
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

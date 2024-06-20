@@ -21,7 +21,7 @@ import cms.utils.ObjectConversion;
 import cms.utils.VersionCompare;
 import cms.web.action.data.MySqlDataManage;
 import cms.web.action.message.PrivateMessageConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 私信

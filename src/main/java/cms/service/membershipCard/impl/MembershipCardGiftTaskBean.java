@@ -23,11 +23,9 @@ import cms.bean.user.UserRoleGroup;
 import cms.service.besa.DaoSupport;
 import cms.service.membershipCard.MembershipCardGiftTaskService;
 import cms.service.user.UserRoleService;
-import cms.service.user.UserService;
-import cms.service.user.impl.UserServiceBean;
 import cms.web.action.SystemException;
 import cms.web.action.membershipCard.MembershipCardGiftItemConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 会员卡赠送任务实现

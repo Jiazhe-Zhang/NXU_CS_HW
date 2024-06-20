@@ -44,7 +44,7 @@ import cms.utils.ObjectConversion;
 import cms.web.action.user.PointLogConfig;
 import cms.web.action.user.UserDynamicConfig;
 import cms.web.action.user.UserLoginLogConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 /**
  * 用户管理
  * @Repository 将加有Repository注解的使用JPA或者Hibernate原生API的方法所抛出的异常转化为Spring的DataAccessException中的异常

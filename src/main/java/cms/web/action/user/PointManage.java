@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 import cms.bean.user.PointLog;
 import cms.utils.UUIDUtil;
 import cms.utils.Verification;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

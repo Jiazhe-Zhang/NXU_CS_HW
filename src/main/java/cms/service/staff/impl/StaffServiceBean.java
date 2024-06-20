@@ -16,7 +16,7 @@ import cms.service.besa.DaoSupport;
 import cms.service.staff.ACLService;
 import cms.service.staff.StaffService;
 import cms.web.action.staff.StaffLoginLogConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

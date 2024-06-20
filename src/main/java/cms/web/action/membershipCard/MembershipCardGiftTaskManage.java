@@ -18,7 +18,7 @@ import cms.service.user.UserService;
 import cms.utils.JsonUtils;
 import cms.web.action.user.UserManage;
 import cms.web.action.user.UserRoleManage;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;

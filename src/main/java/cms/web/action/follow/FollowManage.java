@@ -27,7 +27,7 @@ import cms.utils.UUIDUtil;
 import cms.utils.Verification;
 import cms.web.action.message.RemindManage;
 import cms.web.action.user.UserManage;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

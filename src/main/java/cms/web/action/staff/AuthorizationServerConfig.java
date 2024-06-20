@@ -77,7 +77,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
         //.allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)//请求方式
         //.tokenEnhancer(tokenEnhancer)// 自定义生成令牌
-        //.reuseRefreshTokens(false)// 是否重复使用 refresh_token 默认为true  1.重复使用：access_token过期刷新时， refresh token过期时间未改变，仍以初次生成的时间为准  2.非重复使用：access_token过期刷新时， refresh_token过期时间延续，在refresh_token有效期内刷新而无需失效再次登录
+        .reuseRefreshTokens(false)// 是否重复使用 refresh_token 默认为true  1.重复使用：access_token过期刷新时， refresh token过期时间未改变，仍以初次生成的时间为准  2.非重复使用：access_token过期刷新时， refresh_token过期时间延续，在refresh_token有效期内刷新而无需失效再次登录
         //.exceptionTranslator(new CustomWebResponseExceptionTranslator())// 自定义异常处理
         
         //pathMapping用来配置端点URL链接，有两个参数，都将以 "/" 字符为开始的字符串。 第一个参数：这个端点URL的默认链接 第二个参数：你要进行替代的URL链接

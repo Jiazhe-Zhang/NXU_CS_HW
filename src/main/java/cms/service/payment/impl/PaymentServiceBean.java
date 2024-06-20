@@ -22,7 +22,7 @@ import cms.service.besa.DaoSupport;
 import cms.web.action.payment.PaymentLogConfig;
 
 import cms.service.payment.PaymentService;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 支付管理实现类

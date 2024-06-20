@@ -22,7 +22,7 @@ import cms.service.besa.DaoSupport;
 import cms.service.message.SystemNotifyService;
 import cms.utils.ObjectConversion;
 import cms.web.action.message.SubscriptionSystemNotifyConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 系统通知

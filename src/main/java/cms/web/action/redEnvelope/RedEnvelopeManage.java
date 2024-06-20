@@ -21,7 +21,7 @@ import cms.utils.Verification;
 import cms.web.action.fileSystem.FileManage;
 import cms.web.action.payment.PaymentManage;
 import cms.web.action.user.UserManage;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;

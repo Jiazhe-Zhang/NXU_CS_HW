@@ -39,7 +39,7 @@ import cms.web.action.TextFilterManage;
 import cms.web.action.cache.CacheManage;
 import cms.web.action.fileSystem.FileManage;
 import cms.web.action.setting.SettingManage;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 /**
  * 话题管理
  *

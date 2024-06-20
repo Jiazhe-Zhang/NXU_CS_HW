@@ -18,7 +18,7 @@ import cms.bean.message.Remind;
 import cms.service.besa.DaoSupport;
 import cms.service.message.RemindService;
 import cms.web.action.message.RemindConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 提醒通知

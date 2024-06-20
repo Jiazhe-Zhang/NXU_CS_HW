@@ -33,6 +33,7 @@ CREATE TABLE `answerlike_0` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerLike_1_idx` (`answerId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -48,6 +49,7 @@ CREATE TABLE `answerlike_1` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerLike_1_idx` (`answerId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -63,6 +65,7 @@ CREATE TABLE `answerlike_2` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerLike_1_idx` (`answerId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -78,6 +81,7 @@ CREATE TABLE `answerlike_3` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerLike_1_idx` (`answerId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -118,6 +122,7 @@ CREATE TABLE `answerreplylike_0` (
   `questionId` bigint(20) DEFAULT NULL,
   `replyId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerReply_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -133,6 +138,7 @@ CREATE TABLE `answerreplylike_1` (
   `questionId` bigint(20) DEFAULT NULL,
   `replyId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerReplyLike_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -148,6 +154,7 @@ CREATE TABLE `answerreplylike_2` (
   `questionId` bigint(20) DEFAULT NULL,
   `replyId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerReplyLike_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -163,10 +170,10 @@ CREATE TABLE `answerreplylike_3` (
   `questionId` bigint(20) DEFAULT NULL,
   `replyId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `answerReplyLike_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 #
 # Structure for table "comment"
@@ -204,6 +211,7 @@ CREATE TABLE `commentlike_0` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentLike_1_idx` (`commentId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -219,6 +227,7 @@ CREATE TABLE `commentlike_1` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentLike_1_idx` (`commentId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -234,6 +243,7 @@ CREATE TABLE `commentlike_2` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentLike_1_idx` (`commentId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -249,6 +259,7 @@ CREATE TABLE `commentlike_3` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentLike_1_idx` (`commentId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -264,6 +275,7 @@ CREATE TABLE `commentreplylike_0` (
   `replyId` bigint(20) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentReply_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -279,6 +291,7 @@ CREATE TABLE `commentreplylike_1` (
   `replyId` bigint(20) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentReplyLike_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -294,6 +307,7 @@ CREATE TABLE `commentreplylike_2` (
   `replyId` bigint(20) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentReplyLike_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -309,6 +323,7 @@ CREATE TABLE `commentreplylike_3` (
   `replyId` bigint(20) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `commentReplyLike_1_idx` (`replyId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1211,6 +1226,7 @@ CREATE TABLE `questionfavorite_0` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionFavorite_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1225,6 +1241,7 @@ CREATE TABLE `questionfavorite_1` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionFavorite_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1239,6 +1256,7 @@ CREATE TABLE `questionfavorite_2` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionFavorite_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1253,6 +1271,7 @@ CREATE TABLE `questionfavorite_3` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionFavorite_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1278,6 +1297,7 @@ CREATE TABLE `questionlike_0` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `question_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1292,6 +1312,7 @@ CREATE TABLE `questionlike_1` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionLike_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1306,6 +1327,7 @@ CREATE TABLE `questionlike_2` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionLike_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1320,10 +1342,10 @@ CREATE TABLE `questionlike_3` (
   `postUserName` varchar(30) DEFAULT NULL,
   `questionId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `questionLike_1_idx` (`questionId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 #
 # Structure for table "questionrewardplatformshare"
@@ -1944,6 +1966,7 @@ CREATE TABLE `systemsetting` (
   `supportEditor` int(11) DEFAULT NULL,
   `topicHeatFactor` varchar(255) DEFAULT NULL,
   `topicHotRecommendedTime` int(11) DEFAULT NULL,
+  `allowMentionMaxNumber` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -2102,6 +2125,7 @@ CREATE TABLE `topicfavorite_0` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicFavorite_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2116,6 +2140,7 @@ CREATE TABLE `topicfavorite_1` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicFavorite_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2130,6 +2155,7 @@ CREATE TABLE `topicfavorite_2` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicFavorite_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2144,6 +2170,7 @@ CREATE TABLE `topicfavorite_3` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `favoriteId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicFavorite_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2169,6 +2196,7 @@ CREATE TABLE `topiclike_0` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicLike_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2183,6 +2211,7 @@ CREATE TABLE `topiclike_1` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicLike_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2197,6 +2226,7 @@ CREATE TABLE `topiclike_2` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicLike_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -2211,10 +2241,10 @@ CREATE TABLE `topiclike_3` (
   `postUserName` varchar(30) DEFAULT NULL,
   `topicId` bigint(20) DEFAULT NULL,
   `userName` varchar(30) DEFAULT NULL,
+  `likeId` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `topicLike_1_idx` (`topicId`,`addtime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 #
 # Structure for table "topicunhide_0"

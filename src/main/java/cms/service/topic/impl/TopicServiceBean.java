@@ -32,7 +32,7 @@ import cms.service.topic.TopicService;
 import cms.service.user.UserService;
 import cms.utils.ObjectConversion;
 import cms.web.action.topic.TopicUnhideConfig;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 /**
  * 话题

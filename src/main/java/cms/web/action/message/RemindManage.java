@@ -8,7 +8,7 @@ import cms.bean.message.Remind;
 import cms.service.message.RemindService;
 import cms.utils.UUIDUtil;
 import cms.utils.Verification;
-import net.sf.cglib.beans.BeanCopier;
+import org.springframework.cglib.beans.BeanCopier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
