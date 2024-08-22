@@ -1,12 +1,12 @@
 bbs:
   #论坛外部目录，例如D:\bbs  不能以斜杆结尾。如果为空，则目录为jar文件的同级bbs目录
-  externalDirectory: 
+  externalDirectory:
   #选择缓存产品 ehcache
   selectCache: ehcache
   #是否允许显示图形界面安装系统
   allowInstallSystem: false
-  
-  sharding: 
+
+  sharding:
     pointLogConfig_tableQuantity: 4 #积分日志配置分表数量
     userLoginLogConfig_tableQuantity: 4 #用户登录日志配置分表数量
     staffLoginLogConfig_tableQuantity: 4 #员工登录日志配置分表数量
@@ -40,12 +40,12 @@ jasypt:
 spring:
   #数据库
   datasource:
-    
+
     #账号配置
-    url: jdbc:mysql://127.0.0.1:3306/bbs-pro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&allowPublicKeyRetrieval=true&useSSL=false&rewriteBatchedStatements=true
+    url: jdbc:mysql://:3306/bbs-pro?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL&allowPublicKeyRetrieval=true&useSSL=false&rewriteBatchedStatements=true
     username: root
     #加密由ENC()包裹
-    password: ENC(H8RxvgIzAJRfwLV10qFukA==)
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #hikari数据库连接池
     hikari:
@@ -73,17 +73,17 @@ spring:
       hibernate.physical_naming_strategy: cms.web.filter.MyPhysicalNamingStrategy
       hibernate.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
-  
+
   web:
     resources:
       addMappings: false #false表示不加入默认的静态资源路径处理。  为true时处理/**,所有匹配不到的接口请求将由ResourceHttpRequestHandler处理、获取并返回。而ResourceHttpRequestHandler内部将会查找对应的静态资源，如果查不到将直接response.sendError()最终重定向到/error视图,最终交给springboot默认的/error控制器处理。  注意：spring boot 2.5路径为 spring.resources.addMappings  spring boot 2.6路径为 spring.web.resources.addMappings
   servlet:
     multipart:
       max-file-size: 1000MB #文件上传单个数据大小
-      max-request-size: 1000MB ##文件上传总数据大小
-    
+      max-request-size: 1000MB #文件上传总数据大小
 
- # mvc: 
+
+ # mvc:
    # throw-exception-if-no-handler-found: true  #默认配置下，找不到hander,直接sendError()。设为true在访问一个不存在的接口时可以让它抛出异常，已便在后面的异常处理器中统一处理
   #mvc:
     #静态资源访问前缀
@@ -93,9 +93,9 @@ spring:
   #resources:
     #static-locations: classpath:/META-INF/resources/,classpath:/backstage/,classpath:/common/,classpath:/file/,file:/robots.txt
     #static-locations: classpath:/backstage/
-      
-      
-#内嵌Tomcat配置   
+
+
+#内嵌Tomcat配置
 server:
   #服务端口
   port: 8080
@@ -110,8 +110,8 @@ server:
     uri-encoding: UTF-8
     remoteip:
       remote-ip-header: X-Forwarded-For
-      protocol-header: X-Forwarded-Proto   
-      protocol-header-https-value: https 
+      protocol-header: X-Forwarded-Proto
+      protocol-header-https-value: https
     #访问日志
     accesslog:
       enabled: false #是否启用访问日志
@@ -124,10 +124,10 @@ server:
       request-attributes-enabled: false #为请求使用的 IP 地址、主机名、协议和端口设置请求属性
       rotate: true #是否启用访问日志轮换
       suffix: .log #日志后缀文件名
-#日志   
+#日志
 logging:
   config: classpath:log4j2.xml
-  
+
 #HttpClient配置
 http:
   maxTotal: 500 #设置连接总数
@@ -154,21 +154,20 @@ kaptcha:
       length: 4 #文本字符长度 默认为5
   noise:
     color: 31,31,31 #噪点颜色 默认为Color.BLACK black
-  word: 
+  word:
     impl: cms.web.action.DefaultWordRenderer #文本字符渲染
-  obscurificator: 
+  obscurificator:
     impl: com.google.code.kaptcha.impl.WaterRipple #图片样式  com.google.code.kaptcha.impl.WaterRipple水纹     com.google.code.kaptcha.impl.ShadowGimpy阴影效果   cms.web.action.FishEyeGimpy鱼眼效果
   background:
-    clear: 
+    clear:
       from: 255,255,255 #背景颜色渐变，开始颜色
       to: 255,255,255 #背景颜色渐变，结束颜色
   session:
     key: code # 存储session的KEY名称
-      
-      
-      
-      
-      
-      
-      
-       
+
+
+
+
+
+
+
